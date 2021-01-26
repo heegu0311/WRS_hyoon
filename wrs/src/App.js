@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import Counter from './Counter';
+import Hello from './Hello';
+import InputSample from './InputSample';
+import Wrapper from './Wrapper';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Wrapper>
+        <Hello name="react" color="green" isSpecial={true}/>
+        <Hello color="pink"/>
+        <b>7. useState 를 통해 컴포넌트에서 바뀌는 값 관리하기</b>
+        <Counter></Counter>
+        <InputSample></InputSample>
+      </Wrapper>
     </div>
   );
 }
