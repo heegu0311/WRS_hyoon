@@ -1,6 +1,7 @@
 import Counter from './Counter';
 import Hello from './Hello';
 import InputSample from './InputSample';
+import InputSampleOneInput from './InputSampleOneInput';
 import Wrapper from './Wrapper';
 
 function App() {
