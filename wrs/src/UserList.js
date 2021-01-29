@@ -43,7 +43,7 @@ const UserList = () => {
     
     return (
         <div>
-            {users.map(user => (
+            {users.map(user => (        // map 함수는 Javascript array 의 내장 함수로 모든 원소(여기서는 총 4개의 객체 원소)들에 대해 적용됨 
                 <User user={user}></User>
             ))}
         </div>
