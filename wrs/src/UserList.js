@@ -43,10 +43,10 @@ const UserList = () => {
     
     return (
         <div>
-            <User user={users[0]}></User>
-            <User user={users[1]}></User>
-            <User user={users[2]}></User>
-            <User user={users[3]}></User>
+            {users.map(user => (
+                <User user={user}></User>
+                )
+            )}
         </div>
     );
 };
