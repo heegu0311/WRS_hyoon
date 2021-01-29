@@ -45,8 +45,7 @@ const UserList = () => {
         <div>
             {users.map(user => (
                 <User user={user}></User>
-                )
-            )}
+            ))}
         </div>
     );
 };
