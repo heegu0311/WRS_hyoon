@@ -1,10 +1,20 @@
 import React from 'react';
 
-const User = ({user}) => {
+function User({ user }) {
+    return (
+        <div>
+            <b>{user.username}</b> <span><b>{user.email}</b></span>
+        </div>
+    );
+}
+
+/*
+const User = ({user}) => {    // 예제랑 달리 화살표 함수로 쓰면 왜 안되는걸까요??? const 라서 파라미터를 받을 수 없는건지..
     <div>
         <b>{user.username}</b> <span><b>{user.email}</b></span>
     </div>
 }
+*/
 
 const UserList = () => {
     
