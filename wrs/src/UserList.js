@@ -40,11 +40,21 @@ const UserList = () => {
             email : "heegu4@gmail.com"
         }
     ];
+
+    users.splice(   // js splice 배열 내장함수를 이용한 객체 삽입
+        1,
+        0,
+        {
+            id : 5,
+            username : 'heegu5',
+            email : "heegu5@gmail.com"
+        }
+    );
     
     return (
         <div>
             {users.map(user => (        // map 함수는 Javascript array 의 내장 함수로 모든 원소(여기서는 총 4개의 객체 원소)들에 대해 적용됨 
-                <User user={user}></User>
+                <User user={user} key={user.id}></User>
             ))}
         </div>
     );
