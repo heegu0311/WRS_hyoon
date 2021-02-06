@@ -53,12 +53,10 @@ function App() {
         active : false
     }
   ]);
-
+  let nextId = useRef(4);
   const onCreate = () => {
-    let nextId = findHighestId(users) + 1 ;
-
     const user = {
-      id : nextId,
+      id : nextId.current,
       username,
       email 
     }
@@ -70,17 +68,8 @@ function App() {
       username: '',
       email: ''
     });
-  }
 
-  const findHighestId = (users) => {   // users 객체의 id 값중에서 id 최대값 구하는 방식으로 해서 useRef를 안써보고 싶은데 잘 안됨.
-    let highestId;
-    console.log('loop start');
-
-    for (let i=users.length;i>0;i--) {
-      highestId = ( (typeof(users[i]) !== 'undefined' && (typeof(users[i-1]) !== 'undefined')) ? (users[i-1].id < users[i].id ? users[i].id : users[i-1].id) : users[i-1].id);
-      console.log(highestId);
-    }
-    return highestId;
+    nextId.current+=1;
   }
 
   const onRemove = (id) => {
