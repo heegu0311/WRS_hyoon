@@ -11,10 +11,13 @@ import UserList from './UserList';
 
 function countActiveUsers(users) {
   console.log('활성 사용자 수를 세는중...');
-  return users.filter(user => user.active).length;
+  const a = users.filter(user => user.active);
+  console.log(a);
+  return a.length;
 }
 
 function App() {
+
   const [inputs, setInputs] = useState({
     username : '',
     email : ''
@@ -33,28 +36,29 @@ function App() {
   const [users, setUsers] = useState([
     {
         id : 1,
-        username : 'heegu1',
-        email : "heegu1@gmail.com",
+        username : 'A',
+        email : "A@gmail.com",
         active : true
     },
     {
         id : 2,
-        username : 'heegu2',
-        email : "heegu2@gmail.com",
+        username : 'B',
+        email : "B@gmail.com",
         active : false
     },
     {
         id : 3,
-        username : 'heegu3',
-        email : "heegu3@gmail.com",
+        username : 'C',
+        email : "C@gmail.com",
         active : false
     }
   ]);
 
-  const nextId = useRef(4);
   const onCreate = () => {
+    let nextId = findHighestId(users) + 1 ;
+
     const user = {
-      id : nextId.current,
+      id : nextId,
       username,
       email 
     }
@@ -66,7 +70,17 @@ function App() {
       username: '',
       email: ''
     });
-    nextId.current += 1;
+  }
+
+  const findHighestId = (users) => {   // users 객체의 id 값중에서 id 최대값 구하는 방식으로 해서 useRef를 안써보고 싶은데 잘 안됨.
+    let highestId;
+    console.log('loop start');
+
+    for (let i=users.length;i>0;i--) {
+      highestId = ( (typeof(users[i]) !== 'undefined' && (typeof(users[i-1]) !== 'undefined')) ? (users[i-1].id < users[i].id ? users[i].id : users[i-1].id) : users[i-1].id);
+      console.log(highestId);
+    }
+    return highestId;
   }
 
   const onRemove = (id) => {
