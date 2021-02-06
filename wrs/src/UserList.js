@@ -1,6 +1,6 @@
 import React , { useEffect } from 'react';
 
-function User({ user, onRemove, onToggle }) {
+const User = React.memo(function User({ user, onRemove, onToggle }) {   // React.Memo 설정시 문법이 이해가 안됨..
     useEffect(() => {
         console.log('user 값이 설정됨');
         console.log(user);
@@ -28,7 +28,7 @@ function User({ user, onRemove, onToggle }) {
             <button onClick={() => onRemove(user.id)}>삭제</button>
         </div>
     );
-}
+});
 
 /*
 const User = ({user}) => {    // 예제랑 달리 화살표 함수로 쓰면 왜 안되는걸까요??? const 라서 파라미터를 받을 수 없는건지..
@@ -48,4 +48,4 @@ const UserList = ({users, onRemove, onToggle}) => {
     );
 };
 
-export default UserList;
+export default React.memo(UserList);

@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import App from './App';
 // import SimplePractice from './SimplePractice';
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
+    {/* <App2 /> */}
     {/* <SimplePractice num1={1}/> */}
   </React.StrictMode>,
   document.getElementById('root')
